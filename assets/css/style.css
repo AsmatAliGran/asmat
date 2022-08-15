@@ -1267,3 +1267,8 @@ h3 {
 .sbar {
   display:none;
 }
+.website_imgages{
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
