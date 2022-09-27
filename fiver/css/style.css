@@ -1,0 +1,48 @@
+body{
+  background: #FFC727;
+}
+.orange{
+  color: #FFC727;
+}
+.info{
+  color: #008AFF;
+}
+.font-size-20{
+  font-size: 20px;
+}
+.card{
+  background-color: #FFC727;
+  border-radius: 10px;
+  padding: 10px;
+}
+.card-1{
+  background-color: #222222;
+  color: #FFC727;
+  padding: 10px;
+
+
+}
+.card-p{
+  color: #222222;
+}
+.card-p:hover{
+  color: #FFC727;
+}
+.card > p > svg:hover{
+  color: #FFC727;
+}
+.card:hover{
+  background-color: #222222;
+  color: #FFC727;
+  padding: 10px;
+  fill: #FFC727;
+}
+svg:hover path {    fill: #d39f11;}
+
+@media screen and (max-width: 480px) {
+  .list-inline {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+}
+}
