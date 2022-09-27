@@ -49,7 +49,7 @@ body{
   font-family: 'Noto Sans Arabic', sans-serif
 
 }
-/* svg:hover path {    fill: #d39f11;} */
+svg:hover path {    fill: #d39f11;}
 @media screen and (max-width: 480px) {
   .list-inline {
     display: flex;
