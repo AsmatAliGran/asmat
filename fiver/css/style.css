@@ -1,5 +1,6 @@
 body{
   background: #FFC727;
+  font-family: 'Noto Sans Arabic', sans-serif
 }
 .orange{
   color: #FFC727;
@@ -37,8 +38,10 @@ body{
   padding: 10px;
   fill: #FFC727;
 }
+.font-48{
+  font-size: 48px;
+}
 svg:hover path {    fill: #d39f11;}
-
 @media screen and (max-width: 480px) {
   .list-inline {
     display: flex;
