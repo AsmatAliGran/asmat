@@ -5,14 +5,19 @@ body {
   color: #272829;
   background-color: #011426;
 }
-
+.social-links>a>i{
+  color:#011426 ;
+}
+.social-links> a> i:hover{
+  color:#ffb100 ;
+}
 a {
   color: #ffb100;
   text-decoration: none;
 }
 
 a:hover {
-  color: #067ded;
+  color: #ffb100;
   text-decoration: none;
 }
 span ,p ,a,strong,li{
@@ -307,11 +312,11 @@ h6{font-family: 'Play', sans-serif;
   font-size: 64px;
   font-weight: 700;
   line-height: 56px;
-  color: #45505b;
+  color: #011426;
 }
 
 #hero p {
-  color: #45505b;
+  color: #011426;
   margin: 15px 0 0 0;
   font-size: 26px;
   font-family: "Poppins", sans-serif;
@@ -809,8 +814,8 @@ section {
   text-align: center;
   padding: 70px 20px 80px 20px;
   transition: all ease-in-out 0.3s;
-  background: #fff;
-  box-shadow: 0px 5px 90px 0px rgba(110, 123, 131, 0.05);
+  background: #ffb100;
+  box-shadow: 0px 5px 90px 0px rgba(194, 226, 9, 0.05);
 }
 
 .services .icon-box .icon {
@@ -848,7 +853,7 @@ section {
 }
 
 .services .icon-box h4 a {
-  color: #45505b;
+  color: #011426;
   transition: ease-in-out 0.3s;
 }
 
@@ -860,7 +865,8 @@ section {
 
 .services .icon-box:hover {
   border-color: #fff;
-  box-shadow: 0px 0 35px 0 rgba(0, 0, 0, 0.08);
+
+  box-shadow: 0px 0 35px 0 rgba(215, 230, 6, 0.08);
 }
 
 .services .iconbox-blue i {
@@ -1016,6 +1022,17 @@ section {
   .testimonials .testimonial-item p {
     width: 80%;
   }
+}
+@media (max-width: 762px) {
+  .bar-circle {
+     
+    width: 58px;
+}
+.bar {
+  float: left;
+  width: -webkit-fill-available;
+  text-align: center;
+}
 }
 
 /*--------------------------------------------------------------
@@ -1280,4 +1297,15 @@ h3 {
 .fonts-style h1{
   color: #011426;
   font-weight: 600;
+}
+@media (max-width: 762px) {
+  .bar-circle {
+     
+    width: 158px;
+}
+.bar {
+  float: left;
+  width: -webkit-fill-available;
+  text-align: center;
+}
 }
