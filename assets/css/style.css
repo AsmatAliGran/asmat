@@ -58,7 +58,8 @@ h6{font-family: 'Play', sans-serif;
 }
 
 .back-to-top:hover {
-  background: #0678e3;
+  /* background: #0678e3; */
+  padding: 10px;
   color: #fff;
 }
 
@@ -66,7 +67,22 @@ h6{font-family: 'Play', sans-serif;
   visibility: visible;
   opacity: 1;
 }
+.glow {
+  font-size: 40px;
+  color: #fff;
+  text-align: center;
+  animation: glow 1s ease-in-out infinite alternate;
+}
 
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+  
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
@@ -122,6 +138,9 @@ h6{font-family: 'Play', sans-serif;
 @media screen and (max-width: 768px) {
   [data-aos-delay] {
     transition-delay: 0 !important;
+  }
+  .d-sm{
+    display: none;
   }
 }
 
