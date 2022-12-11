@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+body{
+  font-family: 'Poppins', sans-serif !important;
+}
+ 
+.background_images{
+  background-image: url('../images/hero.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 80vh;
+}
+.b-images{
+  background-image: url('../images/background.PNG');
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 90vh;
+  position: relative;
+  color: white!important;
+  font-size: 35px !important;
+  text-align: center !important;
+}
+.leptop_images{
+  background-image: url('../images/leptop.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+ 
+.form-control{
+  border: 1px solid #ccc; !important;
+  border-radius: 2px !important;
+  background: #fafafa !important;
+}
+@media screen and (max-width: 480px) {
+  
+}

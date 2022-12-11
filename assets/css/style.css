@@ -68,7 +68,7 @@ h6{font-family: 'Play', sans-serif;
   opacity: 1;
 }
 .glow {
-  font-size: 40px;
+  font-size: 20px;
   color: #fff;
   text-align: center;
   animation: glow 1s ease-in-out infinite alternate;
@@ -132,6 +132,71 @@ h6{font-family: 'Play', sans-serif;
   }
 }
 
+.content-item  a{
+  overflow: hidden;
+  display: block;
+}
+
+.content-item > a > img {
+  transition: 300ms;
+}
+
+.content-item:hover a > img {
+  transform: scale(1.3);
+}
+.aos-animate{
+  transition: 300ms;
+
+}
+.aos-animate:hover {
+  transform: scale(1.3);
+}
+/* http://waitanimate.wstone.io/#!/ */
+.shake {
+  animation: shake-animation 4.72s ease infinite;
+  transform-origin: 50% 50%;
+}
+ 
+@keyframes shake-animation {
+   0% { transform:translate(0,0) }
+  1.78571% { transform:translate(7px,0) }
+  3.57143% { transform:translate(0,0) }
+  5.35714% { transform:translate(7px,0) }
+  7.14286% { transform:translate(0,0) }
+  8.92857% { transform:translate(7px,0) }
+  10.71429% { transform:translate(0,0) }
+  100% { transform:translate(0,0) }
+}
+.shake2 {
+  animation: shake-animation2 2.72s ease infinite;
+  transform-origin: 50% 50%;
+}
+ 
+@keyframes shake-animation2 {
+   0% { transform:translate(0,0) }
+  1.78571% { transform:translate(7px,0) }
+  3.57143% { transform:translate(0,0) }
+  5.35714% { transform:translate(7px,0) }
+  7.14286% { transform:translate(0,0) }
+  8.92857% { transform:translate(7px,0) }
+  10.71429% { transform:translate(0,0) }
+  100% { transform:translate(0,0) }
+}
+.shake3 {
+  animation: shake-animation3 1.72s ease infinite;
+  transform-origin: 50% 50%;
+}
+ 
+@keyframes shake-animation3 {
+   0% { transform:translate(0,0) }
+  1.78571% { transform:translate(7px,0) }
+  3.57143% { transform:translate(0,0) }
+  5.35714% { transform:translate(7px,0) }
+  7.14286% { transform:translate(0,0) }
+  8.92857% { transform:translate(7px,0) }
+  10.71429% { transform:translate(0,0) }
+  100% { transform:translate(0,0) }
+}
 /*--------------------------------------------------------------
 # Disable aos animation delay on mobile devices
 --------------------------------------------------------------*/
