@@ -1,36 +1,79 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
-body{
+
+body {
   font-family: 'Poppins', sans-serif !important;
 }
- 
-.background_images{
+
+.background_images {
   background-image: url('../images/hero.jpg');
   background-position: center;
   background-repeat: no-repeat;
   height: 80vh;
 }
-.b-images{
+
+.b-images {
   background-image: url('../images/background.PNG');
   background-position: center;
   background-repeat: no-repeat;
   height: 90vh;
   position: relative;
-  color: white!important;
+  color: white !important;
   font-size: 35px !important;
   text-align: center !important;
 }
-.leptop_images{
+
+.leptop_images {
   background-image: url('../images/leptop.png');
   background-position: center;
   background-repeat: no-repeat;
   height: 100vh;
 }
- 
-.form-control{
-  border: 1px solid #ccc; !important;
+
+.form-control {
+  border: 1px solid #ccc;
+   !important;
   border-radius: 2px !important;
   background: #fafafa !important;
 }
+
+.logomain {
+  width: 250px;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  color: white;
+  font-size: 14px;
+}
+
 @media screen and (max-width: 480px) {
-  
+  .nav_bg {
+    background-color: rgba(10, 10, 10, 0.5); 
+  }
+
+  .logomain {
+    width: 100px;
+  }
+
+  .navbar>.container,
+  .navbar>.container-fluid,
+  .navbar>.container-lg,
+  .navbar>.container-md,
+  .navbar>.container-sm,
+  .navbar>.container-xl,
+  .navbar>.container-xxl {
+    display: flex;
+    flex-wrap: inherit;
+    align-items: center;
+    justify-content: space-around;
+    direction: rtl;
+    padding: 0px;
+  }
+  .mobile_view {
+    direction: ltr;
+    text-align: center;
+    padding: 45px;
+  }
+  .text-justify{text-align:justify !important;}
 }
