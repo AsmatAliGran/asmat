@@ -46,10 +46,15 @@ body {
   color: white;
   font-size: 14px;
 }
-
+.text-white-hero{
+  color: white;
+  font-size:44px;
+  font-weight: 500;
+}
 @media screen and (max-width: 480px) {
   .nav_bg {
     background-color: rgba(10, 10, 10, 0.5); 
+    z-index: 1;
   }
 
   .logomain {
@@ -76,4 +81,10 @@ body {
     padding: 45px;
   }
   .text-justify{text-align:justify !important;}
+  .text-white-hero{
+    color: white;
+    font-size:35px;
+    font-weight: 500;
+    padding-bottom: 20px;
+  }
 }
