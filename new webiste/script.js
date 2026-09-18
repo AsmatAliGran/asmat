@@ -408,8 +408,8 @@
        ════════════════════════════════════════════════════════════ */
     var typedEl = document.getElementById('typed');
     var ROLES = [
-        'Laravel Developer', 'Full-Stack Developer', 'API Engineer',
-        'Vue.js Developer', 'PHP Engineer'
+        'Laravel Developer', 'Fintech Backend Engineer', 'Full-Stack Developer',
+        'API Engineer', 'Vue.js Developer'
     ];
 
     if (typedEl) {
