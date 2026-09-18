@@ -408,8 +408,8 @@
        ════════════════════════════════════════════════════════════ */
     var typedEl = document.getElementById('typed');
     var ROLES = [
-        'Front-End Developer', 'App Developer', 'Python Developer',
-        'UI/UX Designer', 'YouTuber', 'Content Creator', 'Tech Educator'
+        'Laravel Developer', 'Full-Stack Developer', 'API Engineer',
+        'Vue.js Developer', 'PHP Engineer'
     ];
 
     if (typedEl) {
@@ -1133,10 +1133,14 @@
     }
 
     /* ════════════════════════════════════════════════════════════
-       10. Contact form (client-side validation + demo feedback)
+       10. Contact form — send to email (frontend, no backend)
+           Prefers Web3Forms if data-web3forms-key is set.
+           Otherwise FormSubmit delivers to asmat6894@gmail.com.
+           Gmail password is never stored in this page.
        ════════════════════════════════════════════════════════════ */
     var form = document.getElementById('contact-form');
     var formStatus = document.getElementById('form-status');
+    var submitBtn = document.getElementById('cf-submit');
 
     function setStatus(text, ok) {
         if (!formStatus) return;
@@ -1144,13 +1148,29 @@
         formStatus.className = 'form-status ' + (ok ? 'success' : 'error');
     }
 
+    function setSending(busy) {
+        if (!submitBtn) return;
+        submitBtn.disabled = busy;
+        submitBtn.setAttribute('aria-busy', busy ? 'true' : 'false');
+        submitBtn.innerHTML = busy
+            ? '<i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i> Sending…'
+            : '<i class="fa-regular fa-paper-plane" aria-hidden="true"></i> Send Message';
+    }
+
+    function isFormSuccess(res, data) {
+        if (!data) return res.ok;
+        if (data.success === true || data.success === 'true') return true;
+        return res.ok && !data.error;
+    }
+
     if (form) {
         form.addEventListener('submit', function (e) {
             e.preventDefault();
             var fields = form.elements;
-            var name = fields['name'].value.trim();
-            var email = fields['email'].value.trim();
-            var message = fields['message'].value.trim();
+            var name = (fields['name'] && fields['name'].value || '').trim();
+            var email = (fields['email'] && fields['email'].value || '').trim();
+            var subject = (fields['subject'] && fields['subject'].value || '').trim() || 'Portfolio inquiry';
+            var message = (fields['message'] && fields['message'].value || '').trim();
             var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
             if (!name || !email || !message) {
@@ -1162,12 +1182,82 @@
                 return;
             }
 
-            setStatus('Sending…', true);
-            /* Demo only — connect your backend / form service here */
-            window.setTimeout(function () {
+            /* Honeypot — bots that fill hidden fields are ignored */
+            var honey = fields['_honey'] && fields['_honey'].value;
+            var botcheck = fields['botcheck'] && fields['botcheck'].checked;
+            if (honey || botcheck) {
                 setStatus('✓ Thanks ' + name + '! Your message has been sent — I will reply soon.', true);
                 form.reset();
-            }, 900);
+                return;
+            }
+
+            var web3Key = (form.getAttribute('data-web3forms-key') || '').trim();
+            var inbox = (form.getAttribute('data-email') || 'asmat6894@gmail.com').trim();
+            var url;
+            var body;
+
+            if (web3Key) {
+                url = 'https://api.web3forms.com/submit';
+                body = JSON.stringify({
+                    access_key: web3Key,
+                    name: name,
+                    email: email,
+                    subject: subject,
+                    message: message,
+                    from_name: 'Portfolio Contact',
+                    replyto: email
+                });
+            } else {
+                url = 'https://formsubmit.co/ajax/' + encodeURIComponent(inbox);
+                body = JSON.stringify({
+                    name: name,
+                    email: email,
+                    _replyto: email,
+                    _subject: 'Portfolio: ' + subject,
+                    _template: 'table',
+                    _captcha: 'false',
+                    message: message
+                });
+            }
+
+            setStatus('Sending…', true);
+            setSending(true);
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json'
+                },
+                body: body
+            })
+                .then(function (res) {
+                    return res.json().then(function (data) {
+                        return { res: res, data: data };
+                    }).catch(function () {
+                        return { res: res, data: null };
+                    });
+                })
+                .then(function (result) {
+                    var data = result.data || {};
+                    var msg = data.message || data.error || '';
+                    if (isFormSuccess(result.res, data)) {
+                        if (/confirm/i.test(msg)) {
+                            setStatus('Check ' + inbox + ' and confirm the first FormSubmit email, then send again.', true);
+                        } else {
+                            setStatus('✓ Thanks ' + name + '! Your message has been sent — I will reply soon.', true);
+                            form.reset();
+                        }
+                    } else {
+                        setStatus(msg || 'Could not send. Please try again or email me directly.', false);
+                    }
+                })
+                .catch(function () {
+                    setStatus('Could not send. Please email me at ' + inbox + '.', false);
+                })
+                .then(function () {
+                    setSending(false);
+                });
         });
     }
 

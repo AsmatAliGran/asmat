@@ -678,7 +678,10 @@ html[data-theme='light'] .typed { color: #0090c8; }
   margin-bottom: 36px;
 }
 
-.hero-socials { display: flex; gap: 14px; z-index: 10000;}
+.hero-content {
+  min-width: 0;
+}
+.hero-socials { display: flex; gap: 14px; position: relative; z-index: 2; }
 
 .social-link {
   width: 44px;
@@ -886,6 +889,7 @@ html[data-theme='light'] .typed { color: #0090c8; }
   font-size: 0.93rem;
   overflow-wrap: anywhere;
 }
+.info-row a { color: inherit; }
 .status-open { color: var(--success); }
 
 /* ── Skills ──────────────────────────────────────────────── */
@@ -1135,6 +1139,7 @@ html[data-theme='light'] .typed { color: #0090c8; }
 .contact-socials { display: flex; flex-wrap: wrap; gap: 12px; }
 
 .contact-form {
+  position: relative;
   padding: 34px;
   border-radius: var(--radius);
   background: var(--card);
@@ -1178,6 +1183,26 @@ html[data-theme='light'] .typed { color: #0090c8; }
 .form-status:empty { display: none; }
 .form-status.success { color: var(--success); }
 .form-status.error { color: var(--accent); }
+
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+.contact-form .btn:disabled {
+  opacity: 0.7;
+  cursor: wait;
+  transform: none;
+}
+.project-status {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+.info-row a:hover { color: var(--primary); }
 
 /* ── Footer ──────────────────────────────────────────────── */
 .footer {
